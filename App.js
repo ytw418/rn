@@ -1,12 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { Image,StyleSheet, Text, View , TouchableOpacity,} from 'react-native';
+import { Image,StyleSheet, Text,TextInput, View , TouchableOpacity, TouchableHighlight} from 'react-native';
 import img from './assets/02.png';
 import * as ImagePicker from 'expo-image-picker';
 import * as Sharing from 'expo-sharing'; 
+import {useState} from 'react';
+
 
 export default function App() {
   const [selectedImage, setSelectedImage] = React.useState(null);
+  const [count, setCount] = useState(0)
 
 
   let openImagePickerAsync = async () => {
@@ -50,6 +53,9 @@ export default function App() {
     );
   }
 
+  const [text,setText] = useState('')
+
+
 
 
   return (
@@ -68,9 +74,41 @@ export default function App() {
       </TouchableOpacity>
 
 
+      <TextInput
+          value={text}
+          style={{fontSize:42,color:'steelblue',position:'center'}}
+          placeholder="Type here"
+          onChangeText={(TEXT) => {setText(text)}}
+          ></TextInput>
+          <text style={{fontSize:24}}>
+            {'\n'}you entered: {text}
+    
+          </text>
+
+    <TouchableOpacity
+    style={styles.button}
+    activeOpacity={0.7}
+    onPress={() => {setCount(count + 1)}}><Text> press me!</Text>
+    </TouchableOpacity>
+    <Text>{`pressed ${count} times`}</Text>
+
+    <TouchableHighlight
+        style={styles.button}
+        underlayColor="#FAB"
+        onPress={() => {
+          setCount(count + 1)
+        }}
+      >
+        <Text style={styles.text}>Press me!</Text>
+      </TouchableHighlight>
 
 
-    </View>
+
+
+
+
+
+    </View>  
   );
 }
 

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { View, Text, Button, TextInput, Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
+import { createDrawerNavigator } from '@react-navigation/drawer';
 // 헤더 로고 
 function LogoTitle() {
   return (

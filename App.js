@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { fontSize } from 'styled-system';
 
 function Feed() {
   return (
@@ -42,22 +43,27 @@ function search() {
   );
 }
 
-const Tab = createMaterialBottomTabNavigator();
+const Tab = createMaterialTopTabNavigator(
+);
 
 function MyTabs() {
   return (
     <Tab.Navigator
       initialRouteName="Feed"
       activeColor="#2f2f2f"
-      labelStyle={{ fontSize: 15 }}
+      Style={{ fontSize: 8 }}
       barStyle={{ backgroundColor: "white" }}
-
+      tabBarPosition='bottom'
+      
+      
+      backBehavior='history'
     >
             <Tab.Screen
         name="Feed"
         component={Feed}
         options={{
           tabBarLabel: 'Home',
+          tabBarLabelStyle : { fontSize : 12 } , 
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="home" color={color} size={26} />
           ),
@@ -68,6 +74,7 @@ function MyTabs() {
         component={search}
         options={{
           tabBarLabel: 'search',
+          tabBarLabelStyle : { fontSize : 12 } , 
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="magnify" color={color} size={26} />
           ),
@@ -78,6 +85,7 @@ function MyTabs() {
         component={video}
         options={{
           tabBarLabel: 'video',
+          tabBarLabelStyle : { fontSize : 12 } , 
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="play-box-multiple-outline" color={color} size={26} />
           ),
@@ -87,7 +95,8 @@ function MyTabs() {
         name="shopping"
         component={shopping}
         options={{
-          tabBarLabel: 'shopping',
+          tabBarLabel: 'shop',
+          tabBarLabelStyle : { fontSize : 12 } , 
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="shopping-outline" color={color} size={26} />
           ),
@@ -98,6 +107,7 @@ function MyTabs() {
         component={Profile}
         options={{
           tabBarLabel: 'Profile',
+          tabBarLabelStyle : { fontSize : 12 } , 
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="account" color={color} size={26} />
           ),

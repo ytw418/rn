@@ -1,15 +1,54 @@
 import * as React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View,Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { fontSize } from 'styled-system';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+
+
+const Stack = createNativeStackNavigator();
+function HomeScreen({ navigation, route }) {
+  React.useEffect(() => {
+    if (route.params?.post) {
+      // Post updated, do something with `route.params.post`
+      // For example, send the post to the server
+    }
+  }, [route.params?.post]);
+
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Home Screen</Text>
+      <Button
+        title="Go to Details"
+        onPress={() => navigation.navigate('Details',{itemId: 86, otherParam: 'anything you want here',})}
+      />
+       <Button
+        title="Create post"
+        onPress={() => navigation.navigate('CreatePost')}
+      />
+      <Text style={{ margin: 10 }}>Post: {route.params?.post}</Text>
+    </View>
+  );
+}
 
 function Feed() {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Feed!</Text>
-    </View>
+    <Stack.Navigator initialRouteName="Home"   
+> 
+    <Stack.Screen name="Home" component={HomeScreen}     
+    options={{
+    headerTitle: 'home',
+    headerStyle: {
+    backgroundColor: '#000',
+    },
+    headerTintColor: '#fff',
+    headerTitleStyle: {
+    fontWeight: 'bold',
+    paddingTop: 10,
+    },
+  }} />
+    </Stack.Navigator>
   );
 }
 
@@ -57,6 +96,7 @@ function MyTabs() {
       
       
       backBehavior='history'
+      
     >
             <Tab.Screen
         name="Feed"

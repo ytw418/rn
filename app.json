@@ -1,6 +1,7 @@
 {
   "expo": {
-    "name": "rn",
+    "name": "kawai To Do",
+    "description":"kawai To Do App made with React Native",
     "slug": "rn",
     "version": "1.0.0",
     "orientation": "portrait",

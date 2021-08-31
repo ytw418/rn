@@ -1,5 +1,9 @@
 import * as React from 'react';
 import { Text, View,Button,StyleSheet } from 'react-native';
+import Loading from "./Loading"
+import * as Location from 'expo-location';
+import React, { useState, useEffect } from 'react';
+
 import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
@@ -11,14 +15,11 @@ import { ScreenStack } from 'react-native-screens';
 export default class app extends React.Component {
   render(){
     return(
-      <View style={styles.container}>
-        <View style={styles.yellowView}></View>
-        <View style={styles.blueView}></View>
-      </View>
+        <Loading />
     );
   }
 }
- 
+
 
 const styles = StyleSheet.create({
   container:{
@@ -26,14 +27,15 @@ const styles = StyleSheet.create({
     backgroundColor:'#fff',
   },
   yellowView:{
-    flex: 1,
+    flex: 7,
     backgroundColor:'yellow'
   },
   blueView:{
-    flex:5,
+    flex:1,
     backgroundColor:'blue'
   }
 
 });
+
 
 

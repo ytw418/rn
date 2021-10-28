@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Text, View,Button,StyleSheet } from 'react-native';
 import Loading from "./Loading"
 import * as Location from 'expo-location';
-import React, { useState, useEffect } from 'react';
+//mport React, { useState, useEffect } from 'react';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';

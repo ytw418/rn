@@ -21,21 +21,7 @@ export default class app extends React.Component {
 }
 
 
-const styles = StyleSheet.create({
-  container:{
-    flex: 1,
-    backgroundColor:'#fff',
-  },
-  yellowView:{
-    flex: 7,
-    backgroundColor:'yellow'
-  },
-  blueView:{
-    flex:1,
-    backgroundColor:'blue'
-  }
 
-});
 
 
 
